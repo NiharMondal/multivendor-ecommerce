@@ -9,11 +9,12 @@ export default function DashboardLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<SidebarProvider className="flex flex-col">
+		<SidebarProvider className="flex flex-col bg-neutral-50">
 			<Navbar />
+
 			<Container className="flex">
 				<AppSidebar />
-				<section className="p-5">{children}</section>
+				<section className="p-3 w-full">{children}</section>
 			</Container>
 		</SidebarProvider>
 	);

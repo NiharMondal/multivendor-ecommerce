@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "./Container";
-import { Bell, Globe, CircleHelp } from "lucide-react";
+import { Bell, Globe, CircleHelp, Search } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import {
 	DropdownMenu,
@@ -22,6 +22,7 @@ import { Badge } from "../ui/badge";
 import { Input } from "@/components/ui/input";
 import { Button } from "../ui/button";
 import { SidebarTrigger } from "../ui/sidebar";
+import { Separator } from "../ui/separator";
 export default function Navbar() {
 	return (
 		<div className="border-b w-full">
@@ -96,11 +97,11 @@ export default function Navbar() {
 								<CircleHelp />
 								<span>Help</span>
 							</li>
-							<li className="inline-flex gap-x-1 relative">
-								<Bell />
+							<li className="inline-flex gap-x-1 relative border p-1 rounded-md">
+								<Bell size={20} />
 								<Badge
 									variant="destructive"
-									className="absolute -top-3.5 -right-3.5 size-5 rounded-full text-center"
+									className="absolute -top-3 -right-3 size-5 rounded-full text-center"
 								>
 									3
 								</Badge>
@@ -142,7 +143,25 @@ export default function Navbar() {
 			{/* search bar  */}
 			<div className="border-b py-5">
 				<Container className="flex items-center justify-between gap-x-10 my-2">
-					<Input type="text" className="" />
+					<div className="flex items-center gap-x-2 flex-1/2 border py-1 rounded-md h-10">
+						<Select>
+							<SelectTrigger className="border-0 min-w-fit ">
+								<SelectValue placeholder="Categories" />
+							</SelectTrigger>
+							<SelectContent>
+								<SelectItem value="en">EN</SelectItem>
+								<SelectItem value="bn">BN</SelectItem>
+								<SelectItem value="latin">Latin</SelectItem>
+							</SelectContent>
+						</Select>
+						<Separator orientation="vertical" />
+						<Search />
+						<Input
+							type="text"
+							className="w-full border-0 outline-0 focus:border-0 focus:outline-0"
+							placeholder="Search by product, brand or sku..."
+						/>
+					</div>
 					<Button>Search</Button>
 				</Container>
 			</div>
